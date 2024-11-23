@@ -1,0 +1,1 @@
+const recipeStorage = JSON.parse(localStorage.getItem('recipe')) || [];
