@@ -1,4 +1,4 @@
-<!DOCTYPE html>                                                          
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Confetti library for confetti animation -->
     <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
-    <script defer src="./assets/js/form.js"></script>
     <style>
-        /* Boom animation keyframes: creates a growing and fading radial effect */
+        /* Boom animation keyframes */
         @keyframes boom {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(2); opacity: 0.5; }
@@ -21,16 +20,42 @@
 
         /* Styling for the boom animation effect */
         .boom-effect {
-            position: fixed; /* Fix position to the screen */
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            width: 50px; /* Initial size */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 50px;
             height: 50px;
-            background: radial-gradient(circle, red, orange, yellow); /* Gradient color for boom effect */
-            border-radius: 50%; /* Makes the effect circular */
-            animation: boom 1s ease-out forwards; /* Uses the keyframes for the animation */
-            pointer-events: none; /* Prevents interaction */
-            z-index: 9999; /* Ensures the effect appears on top of everything */
+            background: radial-gradient(circle, red, orange, yellow);
+            border-radius: 50%;
+            animation: boom 1s ease-out forwards;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Saved Recipes Icon Button */
+        .saved-recipes-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .saved-recipes-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .saved-recipes-btn i {
+            font-size: 24px;
         }
     </style>
 </head>
@@ -40,38 +65,30 @@
         <aside class="bg-white p-4 rounded shadow-sm mb-4">
             <h2 class="text-primary mb-3">Enter Your Favorite Recipes Here!</h2>
             <form id="recipe-form">
-                <!-- Recipe Title Input -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" id="title" name="title" class="form-control" placeholder="Recipe Title" required>
                 </div>
-                <!-- Ingredients Input -->
                 <div class="mb-3">
                     <label for="Ingredients" class="form-label">Ingredients</label>
                     <textarea id="Ingredients" name="Ingredients" class="form-control" rows="4" placeholder="List your ingredients here..." required></textarea>
                 </div>
-                <!-- Preparation Steps Input -->
                 <div class="mb-3">
                     <label for="Preparation" class="form-label">Preparation</label>
                     <textarea id="Preparation" name="Preparation" class="form-control" rows="4" placeholder="Describe the preparation steps..." required></textarea>
                 </div>
-                <!-- Save Recipe Button -->
                 <button id="submit" type="submit" class="btn btn-primary w-100">Save Recipe</button>
             </form>
         </aside>
 
         <!-- Recipe Finder Section -->
         <section>
-            <!-- Section Title -->
             <h2 class="text-center text-success mb-4">Recipe Finder</h2>
-            <!-- Instructions -->
             <p class="text-center">Type Ingredient(s) and click "Search" to find matching recipes:</p>
-            <!-- Search Input Group -->
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter ingredients here...">
                 <button class="btn btn-success" type="button">Search</button>
             </div>
-            <!-- Surprise Me Button -->
             <p class="text-center">Press for a random recipe!</p>
             <div class="text-center">
                 <button id="surprise" class="btn btn-warning">Surprise Me</button>
@@ -79,35 +96,63 @@
         </section>
     </div>
 
+    <!-- Saved Recipes Button -->
+    <a href="recipes.html" class="saved-recipes-btn" title="Saved Recipes">
+        <i class="bi bi-bookmark-heart-fill"></i>
+    </a>
+
     <!-- Bootstrap JS Bundle for interactivity -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-    <!-- Custom JavaScript -->
     <script>
-        // Event listener for the "Save Recipe" form submission
-        document.getElementById('recipe-form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevents the form from actually submitting
-            // Triggers confetti animation when the form is submitted
+        // Initialize recipe storage
+        const recipeStorage = JSON.parse(localStorage.getItem('recipe')) || [];
+
+        // Recipe submission function
+        function recipeSubmission(event) {
+            event.preventDefault();
+
+            const Title = document.getElementById('title');
+            const Ingredients = document.getElementById('Ingredients');
+            const Preparation = document.getElementById('Preparation');
+
+            const recipeCard = {
+                Title: Title.value,
+                Ingredients: Ingredients.value,
+                Preparation: Preparation.value,
+            };
+
+            recipeStorage.push(recipeCard);
+            localStorage.setItem('recipe', JSON.stringify(recipeStorage));
+
+            Title.value = '';
+            Ingredients.value = '';
+            Preparation.value = '';
+
             confetti({
-                particleCount: 100, // Number of confetti pieces
-                spread: 70, // Spread of the confetti
-                origin: { y: 0.6 } // Adjusts the vertical starting point
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
             });
-            alert("Recipe Saved! 🎉"); // Displays a success message
-        });
+            alert("Recipe Saved! 🎉");
+        }
+
+        // Attach recipe submission event listener
+        document.getElementById('recipe-form').addEventListener('submit', recipeSubmission);
 
         // Event listener for the "Surprise Me" button click
         document.getElementById('surprise').addEventListener('click', function () {
-            // Dynamically creates a div for the boom effect
             const boomDiv = document.createElement('div');
-            boomDiv.classList.add('boom-effect'); // Adds the styling class
-            document.body.appendChild(boomDiv); // Appends it to the body
+            boomDiv.classList.add('boom-effect');
+            document.body.appendChild(boomDiv);
 
-            // Removes the boom effect element after the animation ends
             setTimeout(() => {
                 boomDiv.remove();
-            }, 1000); // 1 second duration matches the animation
+            }, 1000);
         });
     </script>
 </body>
 </html>
+
