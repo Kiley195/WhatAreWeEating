@@ -60,7 +60,16 @@
     </style>
 </head>
 <body class="bg-light">
-    <div class="container my-5">
+    <header class="page-header">
+        <h2>What Are We Eating?</h2>
+        <nav>
+            <ul class="no-bullets">
+                <li><a href="#saveArecipe">Save a Recipe</a></li>
+                <li><a href="#searchbyIngredients">Search by Ingredients</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container my-5" id="saveArecipe">
         <!-- Recipe Form Section -->
         <aside class="bg-white p-4 rounded shadow-sm mb-4">
             <h2 class="text-primary mb-3">Enter Your Favorite Recipes Here!</h2>
@@ -82,7 +91,7 @@
         </aside>
 
         <!-- Recipe Finder Section -->
-        <section>
+        <section id="searchbyIngredients">
             <h2 class="text-center text-success mb-4">Recipe Finder</h2>
             <p class="text-center">Type Ingredient(s) and click "Search" to find matching recipes:</p>
             <div class="input-group mb-3">
