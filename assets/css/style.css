@@ -6,6 +6,53 @@ body {
     background-color: #f8f9fa;
 }
 
+.page-header {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url('cooking-5880136_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; 
+    list-style-type: none;
+}
+
+header h2 {
+    font-weight: bolder;
+    margin-left: 125px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+.no-bullets {
+    list-style-type: none;
+    display: flex;
+}
+
+.no-bullets li {
+    margin-right: 10px;
+}
+
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-size: 100% 100%;
+    background-color: #78f395;
+}
+
+
 /* Container styling */
 .container {
     max-width: 800px;
