@@ -1,66 +1,76 @@
-/* General styles */
-body {
+ /* General styles */
+ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 .page-header {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-image: url('cooking-5880136_1280.jpg');
     background-size: cover;
     background-position: center;
+    height: 300px; /* Adjust height as needed */
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between; 
-    list-style-type: none;
+    text-align: center;
+    color: black;
+    margin: 0;
+    padding: 10px 0; /* Reduce padding at the top and bottom */
 }
+.container.my-5 {
+    margin-top: 10px !important;
+}
+
+
 
 header h2 {
     font-weight: bolder;
-    margin-left: 125px;
 }
 
 nav {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .no-bullets {
     list-style-type: none;
     display: flex;
+    padding: 0;
 }
 
 .no-bullets li {
     margin-right: 10px;
 }
 
-
 nav a {
-    color: #000000;
+    color: black;
     text-decoration: none;
     font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 nav a:hover {
-    background-size: 100% 100%;
     background-color: #78f395;
 }
-
 
 /* Container styling */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
 /* Recipe Form Section */
