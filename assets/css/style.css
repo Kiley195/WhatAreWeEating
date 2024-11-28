@@ -173,3 +173,49 @@ button:hover {
     border: none;
     border-radius: 5px;
 }
+/* Boom animation keyframes */
+@keyframes boom {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(2); opacity: 0.5; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* Styling for the boom animation effect */
+.boom-effect {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, red, orange, yellow);
+    border-radius: 50%;
+    animation: boom 1s ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Saved Recipes Icon Button */
+.saved-recipes-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.saved-recipes-btn:hover {
+    background-color: #0056b3;
+}
+
+.saved-recipes-btn i {
+    font-size: 24px;
+}

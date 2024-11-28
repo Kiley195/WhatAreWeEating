@@ -1,0 +1,18 @@
+.recipe-card {
+    margin-bottom: 15px;
+}
+
+.no-recipes {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5rem;
+    color: #888;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card-header {
+    cursor: pointer;
+}
