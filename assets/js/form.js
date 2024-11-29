@@ -10,9 +10,9 @@ function recipeSubmission(event){
     const Preparation = document.getElementById('Preparation');
 
     const recipeCard = {
-        Title: Title.value,
-        Ingredients: Ingredients.value,
-        Preparation: Preparation.value,
+        Title: Title.value.split(',').trim,
+        Ingredients: Ingredients.value.split(',').trim,
+        Preparation: Preparation.value.split(',').trim,
     };
 
     recipeStorage.push(recipeCard);
