@@ -1,4 +1,4 @@
-//search Script
+
     // Function to perform search and update results
 
     const search = document.getElementById('search-button');
