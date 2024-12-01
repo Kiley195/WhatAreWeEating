@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!-- Link to custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Confetti library -->
-    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
     <!-- Link to custom JavaScript -->
     <script defer src="./assets/js/script.js"></script>
     <script defer src="./assets/js/.js"></script>
@@ -37,7 +35,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="Ingredients" class="form-label">Ingredients</label>
-                    <textarea id="Ingredients" name="Ingredients" class="form-control" rows="4" placeholder="List your ingredients here, use commas in-between..." required></textarea>
+                    <textarea id="Ingredients" name="Ingredients" class="form-control" rows="4" placeholder="List your ingredients here..." required></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="Preparation" class="form-label">Preparation</label>
@@ -46,6 +44,7 @@
                 <button id="submit" type="submit" class="btn btn-primary w-100">Save Recipe</button>
             </form>
         </aside>
+
         <!-- Recipe Finder Section -->
         <section id="searchbyIngredients">
             <h2 class="text-center text-success mb-4">Recipe Finder</h2>
@@ -53,19 +52,18 @@
             <div class="input-group mb-3">
                 <input id="searchInput" type="text" class="form-control" placeholder="Enter ingredients here...">
                 <button id="search-button" class="btn btn-success" type="button">Search</button>
+                
             </div>
-            <div id='results'>
-                <div class="row g-4" id="recipe-list">
-                    <!-- Recipes will be dynamically loaded here -->
-                </div>
-            </div>
-            <p class="text-center">Press for a random recipe!</p>
-            
+            <div id="results"></div>
+
+            <!-- Surprise Me Button -->
+            <p class="text-center mt-4">Press for a random recipe!</p>
             <div class="text-center">
                 <button id="surprise" class="btn btn-warning">Surprise Me</button>
             </div>
         </section>
     </div>
+
     <!-- Saved Recipes Button -->
     <a href="recipes.html" class="saved-recipes-btn" title="Saved Recipes">
         <i class="bi bi-bookmark-heart-fill"></i>
