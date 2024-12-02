@@ -12,7 +12,7 @@ This project is a web application that stores users favorite recipes and search 
    ```bash
    cd project1
    ```
-3. Open the project in your browser at 'file:///C:/Users/kiley/bootcamp/project1/index.html'
+3. Open the project in your browser at '(https://kiley195.github.io/project1/)'
 
 ## Usage
 Once the application is running, you can access the following features:
@@ -24,12 +24,14 @@ Once the application is running, you can access the following features:
 - **Load a random recipe**: Click the "suprise me" button on the bottom of the page to load a random recipe from yur saved recipe collection.
 
 ## Screenshots
-(![Screenshot 2024-11-29 172317](https://github.com/user-attachments/assets/a1255144-185d-4d29-a23f-b1353fed5fa1)
+![Screenshot 2024-11-29 172317](https://github.com/user-attachments/assets/a1255144-185d-4d29-a23f-b1353fed5fa1)
 ![Screenshot 2024-11-29 172331](https://github.com/user-attachments/assets/9eecddbd-dff8-41da-9346-31a146430571)
 ![Screenshot 2024-11-29 172343](https://github.com/user-attachments/assets/5879f7f1-b885-4668-9016-fc91f04b0e43)
 ![Screenshot 2024-11-29 172354](https://github.com/user-attachments/assets/2745a810-7e87-4ab9-953e-c759a34442e3)
 ![Screenshot 2024-11-29 172415](https://github.com/user-attachments/assets/53918447-484f-4b8f-bd30-8b0e136d8b67)
 ![Screenshot 2024-11-29 172422](https://github.com/user-attachments/assets/87ad8b3e-be7a-4e61-bcfa-1cfa3d068377)
+![Screenshot 2024-12-01 194356](https://github.com/user-attachments/assets/5f1b6b5b-ea6f-4097-8b48-c217c5db25ed)
+
 
 ## Acknowledgments
 -Thanks to [Bootstrap](https://getbootstrap.com) for the responsive design framework.
