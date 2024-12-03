@@ -6,6 +6,8 @@ const randomRecipeContainer = document.getElementById('random-recipe-container')
 const newRecipeBtn = document.getElementById('new-recipe-btn');
 const loadingSpinner = document.querySelector('.loading-spinner');
 
+let lastIndex = -1;
+
 // Function to display a random recipe
 function displayRandomRecipe() {
     if (recipeStorage.length === 0) {
@@ -19,7 +21,12 @@ function displayRandomRecipe() {
 
     // Simulate a delay for the loading spinner
     setTimeout(() => {
-        const randomIndex = Math.floor(Math.random() * recipeStorage.length);
+        let randomIndex;
+        //ensure new random index is not the same as previous
+        do {
+            randomIndex = Math.floor(Math.random() * recipeStorage.length);
+        } while (randomIndex === lastIndex);
+        lastIndex = randomIndex; //update last displayed index
         const randomRecipe = recipeStorage[randomIndex];
 
         // Populate the random recipe
