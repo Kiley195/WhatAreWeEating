@@ -12,7 +12,7 @@ This project is a web application that stores users favorite recipes and search 
    ```bash
    cd project1
    ```
-3. Open the project in your browser at '(https://kiley195.github.io/project1/)'
+3. Open the project in your browser at '(https://kiley195.github.io/WhatAreWeEating/)'
 
 ## Usage
 Once the application is running, you can access the following features:
