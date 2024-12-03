@@ -16,7 +16,10 @@
           let recipeIngredients = recipeCard.Ingredients.toLowerCase();
       
           // Check if all search terms are found in the ingredients
-          let matchFound = searchInput.every(input => recipeIngredients.includes(input));
+          let matchFound = searchInput.every(input => recipeIngredients.includes(input.trim()));
+          console.log('search input', searchInput);
+          console.log('recipe storage', recipeStorage);
+
           //display matching recipes to search
           if (matchFound) {
             foundResults = true;
@@ -35,12 +38,12 @@
                 </div>
               </div>
             `;
-            
+
             results.appendChild(resultDiv);
-          }
+           }
         }
         //display if no results are found
-        if (!foundResults) {
-          results.innerHTML = '<p>Sorry, no recipes match your search!</p>';
-        }
+       if (!foundResults){
+        results.innerHTML= `<p>Sorry, no recipes match your search</p>`;
+       }
       }
